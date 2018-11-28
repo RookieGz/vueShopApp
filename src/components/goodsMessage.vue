@@ -17,7 +17,6 @@
 export default {
     computed:{
         goods(){
-            console.log(this.$store.state.Mes)
             return this.$store.state.Mes
         }
     },

@@ -56,8 +56,12 @@ export default {
   },
   methods:{
     ch:function(g){
+      alert("您还未登录")
       this.selected = g
     } 
+  },
+  mounted:function(){
+      this.selected = this.$store.state.back
   }
 }
 </script>

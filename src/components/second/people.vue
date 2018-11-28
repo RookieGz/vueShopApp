@@ -1,8 +1,8 @@
 <template>
     <div id="box">
         <div v-if="!isLogin" class="check">
-            <input type="text">
-            <input type="password">
+            <input type="text" v-model="use">
+            <input type="password" v-model="pwd">
             <div class="login">
                     <mt-button type="primary" size="normal" @click="login">登陆</mt-button>
             </div>
@@ -12,24 +12,40 @@
                 </router-link>
             </div>
         </div>
+        <div v-else>
+            <h1>{{user.name}}</h1>
+        </div>
     </div>
 </template>
 <script>
 export default {
     data(){
         return {
-            tit:"This is peopleComponent"
+            tit:"This is peopleComponent",
+            use:"",
+            pwd:""
         }
     },
     computed:{
         isLogin:function(){
             return this.$store.state.isLogin
+        },
+        user:function(){
+            return this.$store.state.user
         }
     },
     methods:{
         login(){
-            this.$store.state.isLogin = true
-            alert("登陆成功")
+            var a = this.$store.state.user
+            var swi = 0
+            for(var i in a){
+                if(a.use == this.use && a.password == this.pwd){
+                    this.$store.state.isLogin = true
+                    swi = 1
+                    break
+                }
+            }
+            swi == 0 ? alert("账号或者密码错误") : 1
         }
     }
 }
