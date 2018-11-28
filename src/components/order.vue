@@ -44,6 +44,7 @@ export default {
         pay(){
             alert("支付成功")
             this.$router.push("/")
+            this.$store.commit("back","car")
             this.$store.commit("clear")
         },
         back(){

@@ -25,8 +25,8 @@
 export default {
     data:function(){
         return {
-            name:"",
-            use:"",
+            name:"去嚯嚯",
+            use:"123",
             password:"",
             address:"你猜",
             number:"13xxxxxxxxx"
@@ -35,7 +35,7 @@ export default {
     methods:{
         submit(){
             if(this.name == "" || this.use == "" || this.password == ""){
-                alert("以上三项任一不能为空")
+                alert("前三项任一不能为空")
             }else{
                 var g = {
                     name:this.name,

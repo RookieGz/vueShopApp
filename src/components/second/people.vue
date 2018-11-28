@@ -14,8 +14,8 @@
         </div>
         <div v-else class="peo">
             <h1>{{user.name}}</h1>
-            <h2>{{user.address}}</h2>
-            <h2>{{user.number}}</h2>
+            <h2>收货地址：{{user.address}}</h2>
+            <h2>联系电话：{{user.number}}</h2>
             <mt-button type="danger" @click="logout">退出登录</mt-button>
         </div>
     </div>
