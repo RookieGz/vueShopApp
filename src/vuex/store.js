@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state:{
         isLogin:false,
-        car:[]
+        car:[],
+        Mes:{},
     },
     getters:{
         clearUp:function(state){
@@ -64,6 +65,9 @@ export default new Vuex.Store({
                 }
             }
             
+        },
+        lookGoods:function(state,g){
+            state.Mes = g
         }
     }
 })

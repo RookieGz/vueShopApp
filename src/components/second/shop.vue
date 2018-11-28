@@ -12,15 +12,15 @@
 <!-- tab-container -->
         <mt-tab-container v-model="selected" class="shopBody">
             <mt-tab-container-item id="0">
-                <div v-for="n in goods" :title="n.name" class="cf">
+                <div v-for="n in goods" :title="n.name" class="cf" @click="goo(n.id)">
                     <img :src="n.imgName">                    
                     <span>{{n.name}}</span>
                     <p>单价：{{n.price}} 元</p>
-                    <mt-button @click.native="add(n.id)"></mt-button>
+                    <mt-button @click.native.stop="add(n.id)"></mt-button>
                 </div>
             </mt-tab-container-item>
             <mt-tab-container-item id="1">
-                <div v-for="n in food" :title="n.name" class="cf">
+                <div v-for="n in food" :title="n.name" class="cf" @click="goo(n.id)">
                     <img :src="n.imgName" width="100" height="100">
                     <span>{{n.name}}</span>
                     <p>单价：{{n.price}} 元</p>
@@ -28,7 +28,7 @@
                 </div>
             </mt-tab-container-item>
             <mt-tab-container-item id="2">
-                <div v-for="n in electronics" :title="n.name" class="cf">
+                <div v-for="n in electronics" :title="n.name" class="cf" @click="goo(n.id)">
                     <img :src="n.imgName" width="100" height="100">
                     <span>{{n.name}}</span>
                     <p>单价：{{n.price}} 元</p>
@@ -36,7 +36,7 @@
                 </div>
             </mt-tab-container-item>
             <mt-tab-container-item id="3">
-                <div v-for="n in appliances" :title="n.name" class="cf">
+                <div v-for="n in appliances" :title="n.name" class="cf" @click="goo(n.id)">
                     <img :src="n.imgName" width="100" height="100">
                     <span>{{n.name}}</span>
                     <p>单价：{{n.price}} 元</p>
@@ -44,7 +44,7 @@
                 </div>
             </mt-tab-container-item>
             <mt-tab-container-item id="4">
-                <div v-for="n in child" :title="n.name" class="cf">
+                <div v-for="n in child" :title="n.name" class="cf" @click="goo(n.id)">
                     <img :src="n.imgName" width="100" height="100">
                     <span>{{n.name}}</span>
                     <p>单价：{{n.price}} 元</p>
@@ -52,7 +52,7 @@
                 </div>
             </mt-tab-container-item>
             <mt-tab-container-item id="5">
-                <div v-for="n in drink" :title="n.name" class="cf">
+                <div v-for="n in drink" :title="n.name" class="cf" @click="goo(n.id)">
                     <img :src="n.imgName" width="100" height="100">
                     <span>{{n.name}}</span>
                     <p>单价：{{n.price}} 元</p>
@@ -102,6 +102,16 @@ export default {
             }
             this.$store.commit("addCar",g)
             //console.log(this.$store.getters.clearUp)
+        },
+        goo(n){
+            for(var i in this.goods){
+                if(n == this.goods[i].id){
+                    var g = this.goods[i]
+                    break
+                }
+            }
+            this.$router.push("/goodsMessage")
+            this.$store.commit("lookGoods",g)
         }
     }
 }
