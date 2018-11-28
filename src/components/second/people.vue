@@ -12,8 +12,11 @@
                 </router-link>
             </div>
         </div>
-        <div v-else>
+        <div v-else class="peo">
             <h1>{{user.name}}</h1>
+            <h2>{{user.address}}</h2>
+            <h2>{{user.number}}</h2>
+            <mt-button type="danger" @click="logout">退出登录</mt-button>
         </div>
     </div>
 </template>
@@ -46,6 +49,9 @@ export default {
                 }
             }
             swi == 0 ? alert("账号或者密码错误") : 1
+        },
+        logout(){
+            this.$store.state.isLogin = false
         }
     }
 }
@@ -68,5 +74,8 @@ export default {
 }
 #box .login{
     margin-bottom: 1.5rem
+}
+.peo>*{
+    margin-bottom: 5rem
 }
 </style>

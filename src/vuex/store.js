@@ -77,8 +77,8 @@ export default new Vuex.Store({
         reg:function(state,g){//注册用户
             state.user = g
         },
-        back:function(state){//返回首页用户页
-            state.back = "people"
+        back:function(state,g){//返回首页用户页
+            state.back = g
             //console.log(state.back)
         }
     }

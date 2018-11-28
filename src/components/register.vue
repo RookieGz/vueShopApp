@@ -10,6 +10,9 @@
             <li>昵称：<input type="text" v-model="name"></li>
             <li>账号：<input type="text" v-model="use"></li>
             <li>密码：<input type="password" v-model="password"></li>
+            <li>收货地址：<input type="text" v-model="address"></li>
+            <li>手机号：<input type="text" v-model="number"></li>
+
             <li>
                 <mt-button type="primary" size="normal" @click="submit">
                     提交
@@ -24,7 +27,9 @@ export default {
         return {
             name:"",
             use:"",
-            password:""
+            password:"",
+            address:"你猜",
+            number:"13xxxxxxxxx"
         }
     },
     methods:{
@@ -35,16 +40,18 @@ export default {
                 var g = {
                     name:this.name,
                     use:this.use,
-                    password:this.password
+                    password:this.password,
+                    address:this.address,
+                    number:this.number
                 }
                 this.$store.commit("reg",g)
-                this.$store.commit("back")
+                this.$store.commit("back","people")
                 this.$router.go(-1)
             }  
         },
         back(){
             this.$router.go(-1)
-            this.$store.commit("back")
+            this.$store.commit("back","people")
         }
     }
 }

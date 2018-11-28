@@ -66,8 +66,8 @@ export default {
         che(){
             if(this.$store.state.isLogin){
                 if(this.$store.state.car.length>0){
-                    alert("支付成功")
-                    this.$store.commit("clear")
+                    this.$router.push("/order")
+                    
                 }else{
                     alert("你还未添加商品")
                 }
