@@ -7,6 +7,10 @@ import router from './router'
 import store from './vuex/store'
 //mint-ui的按需引入
 import {Tabbar,TabItem,TabContainer,TabContainerItem,Cell,Button,Navbar,Header} from 'mint-ui'
+//引入axios模块
+import axios from "axios";
+
+Vue.prototype.http = axios
 
 Vue.config.productionTip = false
 //注册mt全局组件

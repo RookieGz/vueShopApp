@@ -6,7 +6,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted:function(){
+    this.http.get("http://192.168.43.93/test").then(function(res){
+      console.log(res)
+    })
+  }
 }
 </script>
 
